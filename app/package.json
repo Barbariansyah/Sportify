@@ -11,8 +11,7 @@
     "styled-components": "^4.3.1"
   },
   "devDependencies": {
-    "standard": "*",
-    "pre-commit": "*"
+    "standard": "*"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
