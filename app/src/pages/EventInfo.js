@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid, GridList, GridListTile, Container, Typography, Button, Icon } from '@material-ui/core'
 import styled from 'styled-components'
-import Highlight from '../Highlight'
 import Section from '../Section'
 import Header from '../Header'
 import { Star, StarBorder } from '@material-ui/icons'
@@ -20,21 +19,6 @@ const GridListWrapper = styled.div`
         flex-wrap: nowrap;
     }
 `
-
-const timeSlots = [
-  { time: '12:00', color: 'secondary' },
-  { time: '15:00', color: 'primary' },
-  { time: '18:00' },
-  { time: '21:00', color: 'secondary' },
-  { time: '13:00', color: 'secondary' },
-  { time: '16:00' },
-  { time: '19:00' },
-  { time: '22:00' },
-  { time: '14:00', color: 'primary' },
-  { time: '17:00' },
-  { time: '20:00' },
-  { time: '23:00' }
-]
 
 const SlotGrid = styled(Grid)`
     margin-top: 10px;

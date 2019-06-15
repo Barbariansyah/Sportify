@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid, GridList, GridListTile, Container, Typography, Button, Icon } from '@material-ui/core'
 import styled from 'styled-components'
-import Highlight from '../Highlight'
 import Section from '../Section'
 import Header from '../Header'
 import { Star, StarBorder } from '@material-ui/icons'

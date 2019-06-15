@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import MobileNav from './MobileNav'
 import Index from './pages/Index'
 import Venues from './pages/Venues'

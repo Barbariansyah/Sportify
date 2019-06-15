@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import EventCard from '../EventCard'
 import Header from '../Header'
-import { Grid, Paper, Container, Typography, Link, ButtonBase } from '@material-ui/core'
-import { KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers'
-import RemoveIcon from '@material-ui/icons/Remove'
+import { Grid, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 
 import lapangan1 from '../assets/lapangan1.jpg'
-import lapangan2 from '../assets/lapangan2.jpg'
 import lapangan3 from '../assets/lapangan3.jpg'
 
 const event = [

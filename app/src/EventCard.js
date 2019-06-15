@@ -3,10 +3,7 @@ import styled from 'styled-components'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Icon from '@material-ui/core/Icon'
 import Typography from '@material-ui/core/Typography'
-import StarIcon from '@material-ui/icons/Star'
-import StarBorderIcon from '@material-ui/icons/StarBorder'
 import PersonIcon from '@material-ui/icons/Person'
 
 const StyledCard = styled(Card)`

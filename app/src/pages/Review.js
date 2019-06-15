@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { GridListTile, GridList, Grid, Container, TextField, Button } from '@material-ui/core'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import activity from '../assets/activity.png'
 import Header from '../Header'
@@ -14,7 +13,6 @@ import fb from '../assets/fb.jpg'
 import wa from '../assets/wa.jpg'
 import tw from '../assets/tw.jpg'
 import ig from '../assets/ig.jpg'
-import { style } from '@material-ui/system'
 
 const StyleBox = styled(Box)`
     .header-img{

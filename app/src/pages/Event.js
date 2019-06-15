@@ -73,16 +73,16 @@ function Event () {
       <Section>
         <Container maxWidth='lg'>
           <MainGrid container spacing={1}>
-          <Grid item xs={12} className='form-control'>
-            <TextField
-              id='loc'
-              label='Search Event or Places'
-              variant='outlined'
-              fullWidth
-              value={loc}
-              onChange={handleLocChange}
-            />
-          </Grid>
+            <Grid item xs={12} className='form-control'>
+              <TextField
+                id='loc'
+                label='Search Event or Places'
+                variant='outlined'
+                fullWidth
+                value={loc}
+                onChange={handleLocChange}
+              />
+            </Grid>
             { sports.map(({ text, icon, q }) =>
               <Grid item xs={6} md={3}>
                 <Link component={RouterLink} to={'/venue?q=' + q}>
