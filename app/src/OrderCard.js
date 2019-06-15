@@ -1,13 +1,10 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
-import clsx from 'clsx'
-import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import AddButton from '@material-ui/icons/Add'
 import RemoveButton from '@material-ui/icons/Remove'
@@ -30,6 +27,7 @@ const StyledGrid = styled(Grid)`
     .bill{
         justify-content: space-between;
         display:flex;
+        margin-bottom: 10px;
     }
 
     .memberNumber {
@@ -150,6 +148,12 @@ export default function FullWidthGrid () {
               </Typography>
             </div>
           </div>
+          <Grid item>
+              <ButtonGroup
+                ButtonGroup fullWidth aria-label='Full width outlined button group'>
+                <Button>Confirm Order</Button>
+              </ButtonGroup>
+           </Grid>
         </Paper>
       </Grid>
     </StyledGrid>

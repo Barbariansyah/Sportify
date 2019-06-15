@@ -22,6 +22,7 @@ const MobileNav = () => {
 
   return (
     <Hidden mdUp>
+      <div style={{ height: 48 }} />
       <StyledBottomNavigation
         value={value}
         onChange={(event, newValue) => {

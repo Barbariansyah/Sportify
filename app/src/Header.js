@@ -1,14 +1,19 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography, Button, Hidden } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { AppBar, Toolbar, Typography, Button, Hidden, Link, IconButton } from '@material-ui/core'
+import { ArrowBack } from '@material-ui/icons'
+import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledAppBar = styled(AppBar)`
     background-color: #457d3f;
 
     .title {
-        flex-grow: 1;
-        text-align: center;
+      flex-grow: 1;
+      text-align: center;
+      
+      &.back {
+        text-align: left;
+      }
     }
 
     @media screen and (min-width: 960px){
@@ -19,28 +24,29 @@ const StyledAppBar = styled(AppBar)`
 
     a {
       color: white;
-      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 `
 
-const Header = () => {
+const Header = ({ back, title, subtitle }) => {
   return (
     <div>
       <StyledAppBar>
         <Toolbar variant='dense'>
-          {/* <IconButton edge="start" color="inherit" aria-label="Menu">
-                        <ArrowBack />
-                    </IconButton> */}
-          <Typography variant='h6' className='title'>
-                        Sportify
+          { back ? <IconButton edge="start" color="inherit" to={back} component={RouterLink} aria-label="Menu">
+              <ArrowBack />
+          </IconButton> : '' }
+          <Typography variant='h6' className={back ? 'title back' : 'title'}>
+            <Link to='/' variant='inherit' component={RouterLink}>
+              { title || 'Sportify' }
+            </Link>
           </Typography>
           <Hidden smDown>
-            <Link to='/'>
-              <Button color='inherit'>Venue</Button>
-            </Link>
-            <Link to='/event'>
-              <Button color='inherit'>Event</Button>
-            </Link>
+            <Button color='inherit' to='/' component={RouterLink}>Venue</Button>
+            <Button color='inherit' to='/event' component={RouterLink}>Event</Button>
           </Hidden>
         </Toolbar>
       </StyledAppBar>

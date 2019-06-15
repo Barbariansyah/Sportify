@@ -7,6 +7,7 @@ import Icon from '@material-ui/core/Icon'
 import Typography from '@material-ui/core/Typography'
 import StarIcon from '@material-ui/icons/Star'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
+import PersonIcon from '@material-ui/icons/Person'
 
 const StyledCard = styled(Card)`
   display: flex;
@@ -14,6 +15,10 @@ const StyledCard = styled(Card)`
   margin: 8px 4px;
   padding: 2px;
 
+  .event{
+      display: flex;
+  }  
+    
   .details {
     display: flex;
     flex-direction: column;
@@ -25,9 +30,9 @@ const StyledCard = styled(Card)`
     padding: 2px;
   }
 
-  .price{
-    text-align: right;
-    padding-right: 2px;
+  .dateTime{
+    display: flex;
+    justify-content: space-between;
   }
 
   .reviewCount{
@@ -38,8 +43,7 @@ const StyledCard = styled(Card)`
     justify-content: space-between; 
     display: flex;
     align-items: center;
-    margin-left: 2px;
-    margin-bottom:2px;
+    margin: 2px 6px;
   }
 
   .cover {
@@ -48,21 +52,31 @@ const StyledCard = styled(Card)`
   }
 `
 
-export default function MediaControlCard ({name, distance, rating, ratingCount, price, image, id}) {
+export default function MediaControlCard ({eventType, venue, distance, rating,ratingCount, date, time, image, id, memberCount}) {
 
   return (
     <StyledCard>
       <div className='details'>
         <CardContent className='content'>
+          <div className = 'event'>
           <Typography component='h6' variant='h6'>
-            {name}
+            {eventType}
+          </Typography>
+          
+          <PersonIcon />
+          <Typography component='h6' variant='h6'>
+            ({memberCount})
+          </Typography>
+          </div>
+          <Typography variant='subtitle1' color='textSecondary'>
+            at {venue}
           </Typography>
           <Typography variant='subtitle1' color='textSecondary'>
-            {distance} Km from you
-          </Typography>
+          {distance} Km from you
+          </Typography>  
         </CardContent>
         <div className='controls'>
-          <div className='Review'>
+          {/*<div className='Review'>
             <Icon aria-label='Star'>
               <StarIcon />
             </Icon>
@@ -81,12 +95,17 @@ export default function MediaControlCard ({name, distance, rating, ratingCount, 
             <Typography variant='subtitle1' className='reviewCount'>
                     ({ratingCount})
             </Typography>
-          </div>
-          <div className='price'>
-            <Typography variant='subtitle1' className='price'>
-                from Rp{price}
+  </div> */}
+            <div>
+            <Typography variant='subtitle1' className='date'>
+                {date}
             </Typography>
-          </div>
+            </div>
+            <div>
+            <Typography variant='subtitle1' className='date'>
+                {time}
+            </Typography>
+            </div>
         </div>
 
       </div>

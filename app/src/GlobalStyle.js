@@ -13,13 +13,34 @@ const GlobalStyle = createGlobalStyle`
   .w-auto {width: auto;}
   .h-100 {height: 100%;}
   .h-auto {height: auto;}
+  .flex{
+    display: flex;
+  }
+  .all-center{
+    align-items: center;
+    justify-content: center;
+  }
+  .no-decoration{
+    text-decoration: none;
+  }
+
+  /* Common Font Size */
+  .fs-22 {
+    font-size: 22px;
+  }
+  .fs-16 {
+    font-size: 16px;
+  }
+  .fs-14 {
+    font-size: 14px;
+  }
 
   .form {
     width: 100%;
   }
 
-  .form-control {
-    /* width: 100%; */
+  /* .form-control {
+    width: 100%;
     display: block;
     background-color: #e6e6e6;
     border: 1px solid #ebebeb;
@@ -36,7 +57,28 @@ const GlobalStyle = createGlobalStyle`
     &::placeholder {
       color: #d3d3d3;
     }
+  } */
+
+  .form-control {
+    margin: 10px 0;
   }
+
+
+  .main-link{
+    color: blue;
+    opacity: 0.5;
+
+    &.active{
+      opacity: 1;
+      font-weight: bold;
+    }
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  
 `
 
 export default GlobalStyle
