@@ -16,7 +16,7 @@ const Highlight = ({ width }) => {
       cols={1.5}
       cellHeight={isWidthDown('sm', width) ? 150 : 340}
       spacing={10}>
-      { [1, 2, 3].map(el =>
+      { [1, 2, 3, 4].map(el =>
         <GridListTile key={el}>
           <HighlightCard />
         </GridListTile>
