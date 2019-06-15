@@ -30,15 +30,21 @@ const app = vertex.app(config) // initialize app with config options
 
 
 
-// import routes
+//import routes
 const index = require('./routes/index')
 const api = require('./routes/api')
 
+const UserController = require('./routes/api/userController');
 
 
-// set routes
-app.use('/', index)
-app.use('/api', api) // sample API Routes
+
+
+// // set routes
+
+// app.use('/', index) // Sample stuffs
+// app.use('/api', api) // sample API Routes
+
+app.use('/api/users', UserController);
 
 
 module.exports = app

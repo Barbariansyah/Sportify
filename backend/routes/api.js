@@ -7,7 +7,7 @@ const router = vertex.router()
 
 router.get('/:resource', (req, res) => {
 	res.json({
-		confirmation: 'success',
+		confirmation: 'success', 
 		resource: req.params.resource,
 		query: req.query // from the url query string
 	})
