@@ -30,21 +30,19 @@ const app = vertex.app(config) // initialize app with config options
 
 
 
-//import routes
-const index = require('./routes/index')
-const api = require('./routes/api')
-
+// //import routes
+// const index = require('./routes/index')
+// const api = require('./routes/api')
 const UserController = require('./routes/api/userController');
+const VenueController = require('./routes/api/venuesController');
 
 
 
 
 // // set routes
+app.use('/venues', VenueController);
+app.use('/users', UserController);
 
-// app.use('/', index) // Sample stuffs
-// app.use('/api', api) // sample API Routes
-
-app.use('/api/users', UserController);
 
 
 module.exports = app

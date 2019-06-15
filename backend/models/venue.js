@@ -1,10 +1,10 @@
 // Venues.js
 var mongoose = require('mongoose');  
-const Facility = require('./facilities')
-
+// const Facility = require('./facilities');
+// const Bookings = require('./bookings');
 
 var VenueSchema = new mongoose.Schema({  
-  _id : Schema.Types.ObjectId,
+  _id : mongoose.Types.ObjectId,
   name: String,
   phone : Number,
   picture_url : String, 
@@ -21,6 +21,7 @@ var VenueSchema = new mongoose.Schema({
   timeslice : Number,
   open_time : Date,
   end_time : Date,
+  // bookings : [{type : mongoose.Types.ObjectId, ref : "Bookings"}],
   public_book : [Number],
   private_book : [Number],
   top_review : {
@@ -29,9 +30,9 @@ var VenueSchema = new mongoose.Schema({
     rating : Number,
     icon : String
   },
-  facilities : [{ type : Schema.Types.ObjectId, ref : "Facility"}]
+  // facilities : [{ type : mongoose.Types.ObjectId, ref : "Facility"}]
 
 });
 
 mongoose.model('Venue', VenueSchema);
-module.exports = mongoose.model('User');
+module.exports = mongoose.model('Venue');

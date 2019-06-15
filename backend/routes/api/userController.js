@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 var User = require('../../models/user');
-
+var Booking = require('../../models/bookings')
 // ADD THIS PART
 
 // CREATES A NEW USER
@@ -33,7 +33,6 @@ router.get('/', function (req, res) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(users);
     });
-    
 });
 
 // GETS A SINGLE USER FROM THE DATABASE
