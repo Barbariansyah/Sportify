@@ -149,11 +149,11 @@ export default function FullWidthGrid () {
             </div>
           </div>
           <Grid item>
-              <ButtonGroup
-                ButtonGroup fullWidth aria-label='Full width outlined button group'>
-                <Button>Confirm Order</Button>
-              </ButtonGroup>
-           </Grid>
+            <ButtonGroup
+              ButtonGroup fullWidth aria-label='Full width outlined button group'>
+              <Button>Confirm Order</Button>
+            </ButtonGroup>
+          </Grid>
         </Paper>
       </Grid>
     </StyledGrid>

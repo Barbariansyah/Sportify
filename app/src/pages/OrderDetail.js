@@ -9,8 +9,8 @@ import Header from '../Header'
 const Venue = () => {
   return (
     <>
-      <Header 
-        title='Order Details'/>
+      <Header
+        title='Order Details' />
       <Section>
         <Container maxWidth='lg'>
           <OrderCard />

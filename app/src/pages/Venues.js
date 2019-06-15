@@ -26,9 +26,9 @@ const Venues = ({ history }) => {
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
-      <Header 
+      <Header
         back='/'
-        title='Venue'/>
+        title='Venue' />
       <Highlight />
       <Section>
         <Container maxWidth='lg'>

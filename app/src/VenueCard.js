@@ -48,8 +48,7 @@ const StyledCard = styled(Card)`
   }
 `
 
-export default function MediaControlCard ({name, distance, rating, ratingCount, price, image, id}) {
-
+export default function MediaControlCard ({ name, distance, rating, ratingCount, price, image, id }) {
   return (
     <StyledCard>
       <div className='details'>

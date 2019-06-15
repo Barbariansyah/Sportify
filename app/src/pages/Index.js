@@ -14,12 +14,12 @@ import tennis from '../assets/tennis.png'
 import volley from '../assets/volley-ball.png'
 
 const sports = [
-  {text: 'Football', icon: football, q: 'football'},
-  {text: 'Basketball', icon: basketball, q: 'basket'},
-  {text: 'Ping Pong', icon: pong, q: 'pong'},
-  {text: 'Badminton', icon: shuttlecock, q: 'badminton'},
-  {text: 'Tennis', icon: tennis, q: 'tennis'},
-  {text: 'Volleyball', icon: volley, q: 'volley'}
+  { text: 'Football', icon: football, q: 'football' },
+  { text: 'Basketball', icon: basketball, q: 'basket' },
+  { text: 'Ping Pong', icon: pong, q: 'pong' },
+  { text: 'Badminton', icon: shuttlecock, q: 'badminton' },
+  { text: 'Tennis', icon: tennis, q: 'tennis' },
+  { text: 'Volleyball', icon: volley, q: 'volley' }
 ]
 
 const MainGrid = styled(Grid)`
@@ -41,22 +41,22 @@ const MainGrid = styled(Grid)`
 function Index () {
   return (
     <>
-      <Header 
-        back={false}/>
+      <Header
+        back={false} />
       <Highlight />
       <Section>
         <Container maxWidth='lg'>
           <Grid container spacing={1}>
             <Grid item xs>
               <Typography variant='h6' className='tc'>
-                <Link component={NavLink} to="/" activeClassName="active" className="main-link">
+                <Link component={NavLink} to='/' exact activeClassName='active' className='main-link'>
                   VENUE
                 </Link>
               </Typography>
             </Grid>
-             <Grid item xs>
+            <Grid item xs>
               <Typography variant='h6' className='tc'>
-                <Link component={NavLink} to="/event" activeClassName="active" className="main-link">
+                <Link component={NavLink} to='/event' activeClassName='active' className='main-link'>
                   EVENT
                 </Link>
               </Typography>
@@ -67,21 +67,21 @@ function Index () {
       <Section>
         <Container maxWidth='lg'>
           <MainGrid container spacing={1}>
-            { sports.map(({text, icon, q}) =>
+            { sports.map(({ text, icon, q }) =>
               <Grid item xs={6} md={3}>
-                <Link component={RouterLink} to={'/venue?q='+q}>
-                <Paper className='sport-type flex all-center'>
-                  <Grid container style={{margin:'10px 0'}}>
-                    <Grid item xs={12} className='flex all-center'>
-                      <img src={icon} alt='football' className='sport-type__icon'/>
+                <Link component={RouterLink} to={'/venue?q=' + q}>
+                  <Paper className='sport-type flex all-center'>
+                    <Grid container style={{ margin: '10px 0' }}>
+                      <Grid item xs={12} className='flex all-center'>
+                        <img src={icon} alt='football' className='sport-type__icon' />
+                      </Grid>
+                      <Grid item xs={12} className='tc'>
+                        <span className='sport-type__text'>
+                          {text}
+                        </span>
+                      </Grid>
                     </Grid>
-                    <Grid item xs={12} className='tc'>
-                      <span className='sport-type__text'>
-                        {text}
-                      </span>
-                    </Grid>
-                  </Grid>
-                </Paper>
+                  </Paper>
                 </Link>
               </Grid>
             )}

@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledAppBar = styled(AppBar)`
-    background-color: #457d3f;
+    background: #527946;
 
     .title {
       flex-grow: 1;
@@ -36,8 +36,8 @@ const Header = ({ back, title, subtitle }) => {
     <div>
       <StyledAppBar>
         <Toolbar variant='dense'>
-          { back ? <IconButton edge="start" color="inherit" to={back} component={RouterLink} aria-label="Menu">
-              <ArrowBack />
+          { back ? <IconButton edge='start' color='inherit' to={back} component={RouterLink} aria-label='Menu'>
+            <ArrowBack />
           </IconButton> : '' }
           <Typography variant='h6' className={back ? 'title back' : 'title'}>
             <Link to='/' variant='inherit' component={RouterLink}>

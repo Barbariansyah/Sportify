@@ -52,31 +52,30 @@ const StyledCard = styled(Card)`
   }
 `
 
-export default function MediaControlCard ({eventType, venue, distance, rating,ratingCount, date, time, image, id, memberCount}) {
-
+export default function MediaControlCard ({ eventType, venue, distance, rating, ratingCount, date, time, image, id, memberCount }) {
   return (
     <StyledCard>
       <div className='details'>
         <CardContent className='content'>
-          <div className = 'event'>
-          <Typography component='h6' variant='h6'>
-            {eventType}
-          </Typography>
-          
-          <PersonIcon />
-          <Typography component='h6' variant='h6'>
+          <div className='event'>
+            <Typography component='h6' variant='h6'>
+              {eventType}
+            </Typography>
+
+            <PersonIcon />
+            <Typography component='h6' variant='h6'>
             ({memberCount})
-          </Typography>
+            </Typography>
           </div>
           <Typography variant='subtitle1' color='textSecondary'>
             at {venue}
           </Typography>
           <Typography variant='subtitle1' color='textSecondary'>
-          {distance} Km from you
-          </Typography>  
+            {distance} Km from you
+          </Typography>
         </CardContent>
         <div className='controls'>
-          {/*<div className='Review'>
+          {/* <div className='Review'>
             <Icon aria-label='Star'>
               <StarIcon />
             </Icon>
@@ -96,16 +95,16 @@ export default function MediaControlCard ({eventType, venue, distance, rating,ra
                     ({ratingCount})
             </Typography>
   </div> */}
-            <div>
+          <div>
             <Typography variant='subtitle1' className='date'>
-                {date}
+              {date}
             </Typography>
-            </div>
-            <div>
+          </div>
+          <div>
             <Typography variant='subtitle1' className='date'>
-                {time}
+              {time}
             </Typography>
-            </div>
+          </div>
         </div>
 
       </div>

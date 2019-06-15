@@ -8,8 +8,8 @@ import './index.css'
 
 ReactDOM.render(
   <StylesProvider injectFirst>
-      <GlobalStyle />
-      <App />
+    <GlobalStyle />
+    <App />
   </StylesProvider>
   , document.getElementById('root'))
 

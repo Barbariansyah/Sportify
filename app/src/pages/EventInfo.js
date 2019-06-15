@@ -66,12 +66,12 @@ const tile = [
   }
 ]
 
-const Venues = () => {
+const Events = () => {
   return (
     <>
       <Header
         back='/'
-        title='Venue' />
+        title='Event' />
       <GridListWrapper>
         <GridList cols={2.5} className='grid'>
           {tile.map((tile, i) => (
@@ -85,8 +85,11 @@ const Venues = () => {
         <Container maxWidth='lg'>
           <Grid container >
             <Grid item xs={12}>
-              <Typography component='h6' variant='h6'>
-                Lapangan Futsal Tebet Mas
+              <Typography component='h6' variant='h6' >
+                Futsal Match
+              </Typography>
+              <Typography component='subtitle1' variant='subtitle1'>
+                Lapangan Futsal Tebet Mas - Rumput
               </Typography>
             </Grid>
             <Grid item container spacing={1} xs={12}>
@@ -113,32 +116,21 @@ const Venues = () => {
                     1.4 Km from you
               </Grid>
             </Grid>
-            <Grid item container spacing={1} xs={12}>
-              <Grid item xs>
-                <Button fullWidth variant='outlined' color='primary' type='submit'>
-                  Rumput
-                </Button>
+            <SlotGrid item container spacing={1} xs={12}>
+              <Grid item ms={6} className='tr'>
+                    Sunday, 16 June 2019
               </Grid>
-              <Grid item xs>
-                <Button fullWidth variant='outlined' type='submit'>
-                  Semen
-                </Button>
+              <Grid item ms={6} className='tr'>
+                    14:00 - 15:00
               </Grid>
-            </Grid>
-            <SlotGrid item container spacing={1} xs={12} >
-              {timeSlots.map(({ time, color }) =>
-                <Grid item ms={6}>
-                  <Button fullWidth variant='contained' type='submit' color={color}>
-                    {time}
-                  </Button>
-                </Grid>
-              )
-              }
+              <Grid item ms={12} className='tr'>
+                    3 More Slots available
+              </Grid>
             </SlotGrid>
             <Grid item container spacing={1} xs={12}>
               <Grid item xs>
                 <Button fullWidth variant='contained' color='primary' type='submit'>
-                  Book Venue
+                  Join Event
                 </Button>
               </Grid>
             </Grid>
@@ -149,4 +141,4 @@ const Venues = () => {
   )
 }
 
-export default Venues
+export default Events
