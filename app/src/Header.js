@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, Button, Hidden } from '@material-ui/core'
-// import { ArrowBack } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledAppBar = styled(AppBar)`
@@ -16,6 +16,11 @@ const StyledAppBar = styled(AppBar)`
             text-align: left;
         }
     }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
 `
 
 const Header = () => {
@@ -30,8 +35,12 @@ const Header = () => {
                         Sportify
           </Typography>
           <Hidden smDown>
-            <Button color='inherit'>Venue</Button>
-            <Button color='inherit'>Event</Button>
+            <Link to='/'>
+              <Button color='inherit'>Venue</Button>
+            </Link>
+            <Link to='/event'>
+              <Button color='inherit'>Event</Button>
+            </Link>
           </Hidden>
         </Toolbar>
       </StyledAppBar>
