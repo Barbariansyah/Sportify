@@ -10,6 +10,8 @@ import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import queryString from 'query-string'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -21,14 +23,16 @@ const venue = [
   { name: 'Lapangan Tebet Mas', distance: '1.5', rating: 4, ratingCount: '10', price: '237.000', image: lapangan3 }
 ]
 
-const VenueList = () => {
-  const [startTime, setStart] = useState(new Date())
-  const [endTime, setEnd] = useState(new Date())
+const VenueList = ({ location }) => {
+  const queries = queryString.parse(location.search, { ignoreQueryPrefix: true })
+  const [startTime, setStart] = useState(Date.parse(queries.startTime))
+  const [endTime, setEnd] = useState(Date.parse(queries.endTime))
+  const back = `/venue?q=${queries.q}`
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <Header
-        back='/venue'
+        back={back}
         title='Venues in Tebet' />
 
       <Section>
@@ -66,8 +70,8 @@ const VenueList = () => {
           </Grid>
 
           {
-            venue.map(({ name, distance, rating, ratingCount, price, image, id }) =>
-              <Link to='/venue-info' className='no-decoration'>
+            venue.map(({ name, distance, rating, ratingCount, price, image, id }, i) =>
+              <Link to={'/venue/'+i} className='no-decoration' key={i}>
                 <VenueCard
                   name={name}
                   distance={distance}
@@ -92,4 +96,4 @@ const VenueList = () => {
   )
 }
 
-export default VenueList
+export default withRouter(VenueList)

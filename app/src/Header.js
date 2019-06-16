@@ -40,7 +40,7 @@ const Header = ({ back, title, subtitle }) => {
             <ArrowBack />
           </IconButton> : '' }
           <Typography variant='h6' className={back ? 'title back' : 'title'}>
-            <Link to='/' variant='inherit' component={RouterLink}>
+            <Link to={back || '/'} variant='inherit' component={RouterLink}>
               { title || 'Sportify' }
             </Link>
           </Typography>

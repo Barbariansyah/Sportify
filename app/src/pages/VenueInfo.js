@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Section from '../Section'
 import Header from '../Header'
 import { Star, StarBorder } from '@material-ui/icons'
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -65,11 +67,13 @@ const tile = [
   }
 ]
 
-const Venues = () => {
+const Venues = ({match}) => {
+  const id = match.params.id
+
   return (
     <>
       <Header
-        back='/'
+        back='/venue-list'
         title='Venue' />
       <GridListWrapper>
         <GridList cols={2.5} className='grid'>
@@ -125,8 +129,8 @@ const Venues = () => {
               </Grid>
             </Grid>
             <SlotGrid item container spacing={1} xs={12} >
-              {timeSlots.map(({ time, color }) =>
-                <Grid item ms={6}>
+              {timeSlots.map(({ time, color }, i) =>
+                <Grid item ms={6} key={i}>
                   <Button fullWidth variant='contained' type='submit' color={color}>
                     {time}
                   </Button>
@@ -136,7 +140,7 @@ const Venues = () => {
             </SlotGrid>
             <Grid item container spacing={1} xs={12}>
               <Grid item xs>
-                <Button fullWidth variant='contained' color='primary' type='submit'>
+                <Button fullWidth variant='contained' color='primary' type='submit' to={`/order/${id}`} component={Link}>
                   Book Venue
                 </Button>
               </Grid>
@@ -148,4 +152,4 @@ const Venues = () => {
   )
 }
 
-export default Venues
+export default withRouter(Venues)

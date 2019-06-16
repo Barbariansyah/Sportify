@@ -39,33 +39,13 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  /* .form-control {
-    width: 100%;
-    display: block;
-    background-color: #e6e6e6;
-    border: 1px solid #ebebeb;
-    padding: 8px 24px;
-    margin: 5px;
-    border-radius: 24px;
-
-    &.Mui-focused {
-      outline: none;
-      border-color: #1a73e8;
-      box-shadow: 0 0 3px rgba(0,0,0,.1);
-    }
-
-    &::placeholder {
-      color: #d3d3d3;
-    }
-  } */
-
   .form-control {
     margin: 10px 0;
   }
 
 
   .main-link{
-    color: blue;
+    color: #2196f3;
     opacity: 0.5;
 
     &.active{

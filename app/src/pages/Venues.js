@@ -8,16 +8,19 @@ import RemoveIcon from '@material-ui/icons/Remove'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
 import { withRouter } from 'react-router'
+import queryString from 'query-string'
 
-const Venues = ({ history }) => {
+const Venues = ({ location, history }) => {
+  const sports = queryString.parse(location.search, { ignoreQueryPrefix: true }).q
   const [loc, setLoc] = useState('')
   const [startTime, setStart] = useState(new Date())
   const [endTime, setEnd] = useState(new Date())
   const [date, setDate] = useState(new Date())
+  const title = sports.charAt(0).toUpperCase() + sports.slice(1) + ' Venue'
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    history.push('/venue-list')
+    history.push(`/venue-list?q=${sports}&loc=${loc}&date=${date}&startTime=${startTime.toLocaleString()}&endTime=${endTime.toLocaleString()}`)
   }
 
   const handleLocChange = (e) => {
@@ -28,7 +31,7 @@ const Venues = ({ history }) => {
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <Header
         back='/'
-        title='Venue' />
+        title={title} />
       <Highlight />
       <Section>
         <Container maxWidth='lg'>

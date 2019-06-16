@@ -5,6 +5,7 @@ import Highlight from '../Highlight'
 import Section from '../Section'
 import styled from 'styled-components'
 import Header from '../Header'
+import { withRouter } from 'react-router'
 
 import football from '../assets/football.png'
 import basketball from '../assets/basketball-ball.png'
@@ -38,11 +39,17 @@ const MainGrid = styled(Grid)`
   }
 `
 
-function Event () {
+function Event ({ history }) {
   const [loc, setLoc] = useState('')
 
   const handleLocChange = (e) => {
     setLoc(e.target.value)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      history.push(`/event-list?q=${loc}`)
+    }
   }
 
   return (
@@ -78,14 +85,16 @@ function Event () {
                 id='loc'
                 label='Search Event or Places'
                 variant='outlined'
+                type='search'
                 fullWidth
                 value={loc}
                 onChange={handleLocChange}
+                onKeyDown={handleKeyDown}
               />
             </Grid>
             { sports.map(({ text, icon, q }) =>
               <Grid item xs={6} md={3}>
-                <Link component={RouterLink} to={'/venue?q=' + q}>
+                <Link component={RouterLink} to={'/event-list?q=' + q}>
                   <Paper className='sport-type flex all-center'>
                     <Grid container style={{ margin: '10px 0' }}>
                       <Grid item xs={12} className='flex all-center'>
@@ -108,4 +117,4 @@ function Event () {
   )
 }
 
-export default Event
+export default withRouter(Event)

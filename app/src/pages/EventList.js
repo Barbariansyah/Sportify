@@ -4,6 +4,9 @@ import Header from '../Header'
 import { Grid, Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
+import queryString from 'query-string'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan3 from '../assets/lapangan3.jpg'
@@ -14,28 +17,34 @@ const event = [
   { eventType: 'Futsal match', venue: 'Lapangan Tebet Mas', distance: '1.5', rating: '4', ratingCount: '34', date: '18 June', time: '14:00 - 16:00', image: lapangan3, memberCount: '3' }
 ]
 
-function Event () {
+function Event ({location}) {
+  const sport = queryString.parse(location.search, { ignoreQueryPrefix: true }).q
+  const back = `/event?q=${sport}`
+  const title = sport.charAt(0).toUpperCase() + sport.slice(1) + ' Events'
+
   return (
         <>
           <Header
-            back='/event'
-            title='futsal events'
+            back={back}
+            title={title}
           />
 
           <Container maxWidth='lg'>
             {
-              event.map(({ eventType, venue, distance, rating, ratingCount, date, time, image, memberCount }) =>
-                <EventCard
-                  eventType={eventType}
-                  venue={venue}
-                  distance={distance}
-                  rating={rating}
-                  ratingCount={ratingCount}
-                  date={date}
-                  time={time}
-                  image={image}
-                  memberCount={memberCount}
-                />
+              event.map(({ eventType, venue, distance, rating, ratingCount, date, time, image, memberCount }, i) =>
+                <Link to={'/event/'+i} className='no-decoration' key={i}>
+                  <EventCard
+                    eventType={eventType}
+                    venue={venue}
+                    distance={distance}
+                    rating={rating}
+                    ratingCount={ratingCount}
+                    date={date}
+                    time={time}
+                    image={image}
+                    memberCount={memberCount}
+                  />
+                </Link>
               )
             }
           </Container>
@@ -51,4 +60,4 @@ function Event () {
   )
 }
 
-export default Event
+export default withRouter(Event)
