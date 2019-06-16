@@ -140,7 +140,7 @@ const Venues = ({match}) => {
             </SlotGrid>
             <Grid item container spacing={1} xs={12}>
               <Grid item xs>
-                <Button fullWidth variant='contained' color='primary' type='submit' to={`/order/${id}`} component={Link}>
+                <Button fullWidth variant='contained' color='primary' type='submit' to={`/book/${id}`} component={Link}>
                   Book Venue
                 </Button>
               </Grid>

@@ -61,4 +61,29 @@ router.put('/:id', function (req, res) {
     });
 });
 
+// CREATES A NEW USER
+router.post('/', function (req, res) {
+
+    Venue.create({
+        name: req.body.name,
+        // phone : Number,
+        picture_url : req.body.url, 
+        // location : {
+        //   nomor : Number,
+        //   jalan : String,
+        //   Kecamatan : String,
+        //   wilayah : String,
+        //   provinsi : String
+        // },
+        variant : req.body.var, // Lapangan tipe apa
+        rating : req.body.rating,
+        num_of_rating : req.body.num_of_rating
+        }, 
+
+        function (err, user) {
+            if (err) return res.status(500).send(err);
+            res.status(200).send(user);
+        });
+});
+
 module.exports = router;

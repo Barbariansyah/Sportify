@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import GlobalStyle from './GlobalStyle'
 import { StylesProvider } from '@material-ui/styles'
+import axios from 'axios'
 import './index.css'
 // import * as serviceWorker from './serviceWorker';
+
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
 ReactDOM.render(
   <StylesProvider injectFirst>

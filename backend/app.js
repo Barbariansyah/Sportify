@@ -1,5 +1,6 @@
 // Full Documentation - https://www.turbo360.co/docs
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
+const cors = require('cors')
 
 // const app = vertex.express() // initialize app
 
@@ -40,9 +41,9 @@ const VenueController = require('./routes/api/venuesController');
 
 
 // // set routes
+app.use(cors());
 app.use('/venues', VenueController);
 app.use('/users', UserController);
-
 
 
 module.exports = app

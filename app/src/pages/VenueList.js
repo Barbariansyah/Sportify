@@ -12,6 +12,7 @@ import MomentUtils from '@date-io/moment'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import queryString from 'query-string'
+import axios from 'axios'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -28,6 +29,12 @@ const VenueList = ({ location }) => {
   const [startTime, setStart] = useState(Date.parse(queries.startTime))
   const [endTime, setEnd] = useState(Date.parse(queries.endTime))
   const back = `/venue?q=${queries.q}`
+  // let venue = []
+
+  // axios.get(`http://localhost:3000/venues`)
+  //     .then(res => {
+  //       venue = res.data.filter((e) => e.name !== null)
+  //     })
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>

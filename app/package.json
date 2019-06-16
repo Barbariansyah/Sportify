@@ -7,6 +7,7 @@
     "@material-ui/core": "^4.1.1",
     "@material-ui/icons": "^4.2.0",
     "@material-ui/pickers": "^3.1.1",
+    "axios": "^0.19.0",
     "moment": "^2.24.0",
     "query-string": "^6.7.0",
     "react": "^16.8.6",
@@ -19,7 +20,7 @@
     "standard": "*"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3030 HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

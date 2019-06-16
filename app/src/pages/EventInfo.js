@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Section from '../Section'
 import Header from '../Header'
 import { Star, StarBorder } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -113,7 +114,7 @@ const Events = () => {
             </SlotGrid>
             <Grid item container spacing={1} xs={12}>
               <Grid item xs>
-                <Button fullWidth variant='contained' color='primary' type='submit'>
+                <Button fullWidth variant='contained' color='primary' component={Link} to='/' type='submit'>
                   Join Event
                 </Button>
               </Grid>
