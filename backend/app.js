@@ -36,6 +36,7 @@ const app = vertex.app(config) // initialize app with config options
 // const api = require('./routes/api')
 const UserController = require('./routes/api/userController');
 const VenueController = require('./routes/api/venuesController');
+const BookingController = require('./routes/api/bookingController');
 
 
 
@@ -44,6 +45,7 @@ const VenueController = require('./routes/api/venuesController');
 app.use(cors());
 app.use('/venues', VenueController);
 app.use('/users', UserController);
+app.use('/bookings', BookingController);
 
 
 module.exports = app

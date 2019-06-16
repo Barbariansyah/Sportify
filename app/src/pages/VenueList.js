@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import VenueCard from '../VenueCard'
 import Header from '../Header'
 import Section from '../Section'
@@ -18,7 +18,7 @@ import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
 import lapangan3 from '../assets/lapangan3.jpg'
 
-const venue = [
+const fallback_venue = [
   { name: 'Lapangan Futsal Tebet', distance: '1.2', rating: 4, ratingCount: '34', price: '232.000', image: lapangan1 },
   { name: 'Setiabudi court', distance: '1.1', rating: 4, ratingCount: '14', price: '224.000', image: lapangan2 },
   { name: 'Lapangan Tebet Mas', distance: '1.5', rating: 4, ratingCount: '10', price: '237.000', image: lapangan3 }
@@ -28,13 +28,18 @@ const VenueList = ({ location }) => {
   const queries = queryString.parse(location.search, { ignoreQueryPrefix: true })
   const [startTime, setStart] = useState(Date.parse(queries.startTime))
   const [endTime, setEnd] = useState(Date.parse(queries.endTime))
+  const [venue, setVenue] = useState([])
   const back = `/venue?q=${queries.q}`
-  // let venue = []
 
-  // axios.get(`http://localhost:3000/venues`)
-  //     .then(res => {
-  //       venue = res.data.filter((e) => e.name !== null)
-  //     })
+  useEffect (() => {
+    async function fetchData() {
+      const result = await axios.get(`http://localhost:3000/venues`)
+      console.log(result.data.filter((e) => e.hasOwnProperty('name')))
+      setVenue(result.data.filter((e) => e.hasOwnProperty('name')))
+    }
+
+    fetchData()
+  })
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -77,15 +82,15 @@ const VenueList = ({ location }) => {
           </Grid>
 
           {
-            venue.map(({ name, distance, rating, ratingCount, price, image, id }, i) =>
-              <Link to={'/venue/'+i} className='no-decoration' key={i}>
+            venue.map(({ name, rating, num_of_rating, picture_url, _id }, i) =>
+              <Link to={'/venue/'+_id} className='no-decoration' key={_id}>
                 <VenueCard
                   name={name}
-                  distance={distance}
-                  rating={rating}
-                  ratingCount={ratingCount}
-                  price={price}
-                  image={image}
+                  distance='4.2'
+                  rating={rating.toString}
+                  ratingCount={num_of_rating}
+                  price='250.000'
+                  image={picture_url}
                 />
               </Link>
             )

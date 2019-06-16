@@ -6,8 +6,8 @@ const Venue = require('./venue')
 var BookingSchema = new mongoose.Schema({  
     venue : { type : mongoose.Types.ObjectId, ref : "Venue"},
     date : Number,
-    time_start : Date,
-    time_end : Date,
+    time_start : Number,
+    time_end : Number,
 
     //   name: String,
 //   phone : Number,

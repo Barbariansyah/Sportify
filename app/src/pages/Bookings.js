@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BookingListCard from '../BookingListCard'
 import Header from '../Header'
 import Section from '../Section'
@@ -12,6 +12,7 @@ import MomentUtils from '@date-io/moment'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import queryString from 'query-string'
+import axios from 'axios'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -24,6 +25,22 @@ const venue = [
 ]
 
 const VenueList = ({ location }) => {
+  // const [venue, setVenue] = useState([])
+
+  // useEffect (() => {
+  //   async function fetchData() {
+  //     const result = await axios.get(`http://localhost:3000/bookings`)
+  //     let resVenue = result.data.map( async (element) => {
+  //       const ven = await axios.get(`http://localhost:3000/venues/${element.venue}`)
+  //       return ven.data
+  //     });
+  //     setVenue(resVenue)
+  //   }
+
+  //   fetchData()
+  // })
+
+  // console.log(venue)
 
   return (
     <>

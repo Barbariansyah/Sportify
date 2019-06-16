@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Grid, GridList, GridListTile, Container, Typography, Button, Icon } from '@material-ui/core'
 import styled from 'styled-components'
 import Section from '../Section'
@@ -6,6 +6,7 @@ import Header from '../Header'
 import { Star, StarBorder } from '@material-ui/icons'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 import lapangan1 from '../assets/lapangan1.jpg'
 import lapangan2 from '../assets/lapangan2.jpg'
@@ -69,6 +70,16 @@ const tile = [
 
 const Venues = ({match}) => {
   const id = match.params.id
+  const [venue, setVenue] = useState({})
+
+  useEffect (() => {
+    async function fetchData() {
+      const result = await axios.get(`http://localhost:3000/venues/${id}`)
+      setVenue(result.data)
+    }
+
+    fetchData()
+  })
 
   return (
     <>
@@ -89,7 +100,7 @@ const Venues = ({match}) => {
           <Grid container >
             <Grid item xs={12}>
               <Typography component='h6' variant='h6'>
-                Lapangan Futsal Tebet Mas
+                {venue.name}
               </Typography>
             </Grid>
             <Grid item container spacing={1} xs={12}>
@@ -113,7 +124,7 @@ const Venues = ({match}) => {
               </Grid>
               {/* Distance */}
               <Grid item xs className='tr'>
-                    1.4 Km from you
+                    4.2 Km from you
               </Grid>
             </Grid>
             <Grid item container spacing={1} xs={12}>

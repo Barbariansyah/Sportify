@@ -127,7 +127,7 @@ const Venue = () => {
                     </div>
                 </div>
                 <Button fullWidth variant='outlined' aria-label='Full width outlined button' to='/review' component={Link}>
-                    Completed
+                    Share
                 </Button>
                 </Paper>
             </Grid>
