@@ -74,7 +74,7 @@ const Events = () => {
                 Futsal Match
               </Typography>
               <Typography component='subtitle1' variant='subtitle1'>
-                Lapangan Futsal Tebet Mas - Rumput
+                Lapangan Futsal Tebet - Rumput
               </Typography>
             </Grid>
             <Grid item container spacing={1} xs={12}>

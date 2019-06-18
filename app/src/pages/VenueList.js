@@ -33,7 +33,7 @@ const VenueList = ({ location }) => {
 
   useEffect (() => {
     async function fetchData() {
-      const result = await axios.get(`http://localhost:3000/venues`)
+      const result = await axios.get(`http://10.232.79.228:3000/venues`)
       console.log(result.data.filter((e) => e.hasOwnProperty('name')))
       setVenue(result.data.filter((e) => e.hasOwnProperty('name')))
     }
@@ -89,7 +89,7 @@ const VenueList = ({ location }) => {
                   distance='4.2'
                   rating={rating.toString}
                   ratingCount={num_of_rating}
-                  price='250.000'
+                  price='232.000'
                   image={picture_url}
                 />
               </Link>

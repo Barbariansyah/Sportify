@@ -74,7 +74,7 @@ const Venues = ({match}) => {
 
   useEffect (() => {
     async function fetchData() {
-      const result = await axios.get(`http://localhost:3000/venues/${id}`)
+      const result = await axios.get(`http://10.232.79.228:3000/venues/${id}`)
       setVenue(result.data)
     }
 

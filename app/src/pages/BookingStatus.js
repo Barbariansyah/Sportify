@@ -95,7 +95,7 @@ const Venue = () => {
                 <Paper className='paper'>
                 <div>
                     <Typography component='h5' variant='h5'>
-                                    Lapangan Futsal Tebet Mas
+                                    Lapangan Futsal Tebet
                     </Typography>
                     <Typography>
                                     Rumput
